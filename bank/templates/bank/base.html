@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}SecureBank - Your Trusted Financial Partner{% endblock %}</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color:rgb(6, 24, 58);
+            --secondary-color:rgb(23, 39, 86);
+            --accent-color: #F59E0B;
+            --light-color: #f8fafc;
+            --dark-color: #0f172a;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            background-color: var(--light-color);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .bg-bank {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .navbar-brand i {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #e69008;
+            border-color: #e69008;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8) !important;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem !important;
+            margin: 0 0.25rem;
+        }
+        
+        .nav-link:hover {
+            color: white !important;
+            transform: translateY(-2px);
+        }
+        
+        .call-to-action {
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 30px;
+            font-weight: 600;
+            padding: 0.5rem 1.5rem !important;
+        }
+        
+        .call-to-action:hover {
+            background-color: #e69008;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: 6rem 0;
+            color: white;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 3rem 0;
+            margin-top: auto;
+        }
+        
+        .footer a {
+            color: rgba(255, 255, 255, 0.8);
+            transition: color 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .footer-heading {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            color: var(--accent-color);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .card {
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title {
+            font-weight: 700;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 50px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+        
+        /* Testimonial Styles */
+        .testimonial-card {
+            background-color: rgba(42, 68, 148, 0.8);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 1rem;
+        }
+        
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-color);
+        }
+        
+        .testimonial-name {
+            font-weight: 600;
+            margin-bottom: 0;
+            font-size: 1.2rem;
+        }
+        
+        .testimonial-position {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-top: 1.5rem;
+        }
+        
+        .testimonial-rating {
+            color: var(--accent-color);
+        }
+        
+        /* Application Form */
+        .form-section {
+            background-color: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-title {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+        
+        .form-control {
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .form-control:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 0.2rem rgba(245, 158, 11, 0.25);
+        }
+        
+        /* Particles Animation */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Calculator Styles */
+        .calculator-card {
+            background-color: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .calculator-title {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        
+        .calculator-result {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .result-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        .result-value {
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        
+        /* Application Results */
+        .result-card {
+            background-color: white;
+            border-radius: 1rem;
+            padding: 3rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .result-icon {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+        }
+        
+        .success-icon {
+            color: var(--success-color);
+        }
+        
+        .error-icon {
+            color: var(--danger-color);
+        }
+        
+        .result-details {
+            background-color: #f1f5f9;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+        }
+        
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .detail-row:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .detail-label {
+            color: #64748b;
+            font-weight: 500;
+        }
+        
+        .detail-value {
+            font-weight: 600;
+            color: #0f172a;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 4rem 0;
+            }
+            
+            .navbar-brand {
+                font-size: 1.2rem;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .feature-card, .testimonial-card, .calculator-card {
+                padding: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+    
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-bank py-3">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <i class="fas fa-credit-card"></i>
+                SecureBank
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'services' %}">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'testimonials' %}">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link call-to-action" href="{% url 'apply_loan' %}">
+                            <i class="fas fa-dollar-sign me-1"></i> Apply for Loan
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <a class="navbar-brand mb-4 d-inline-block" href="{% url 'home' %}">
+                        <i class="fas fa-credit-card"></i>
+                        SecureBank
+                    </a>
+                    <p>Your trusted financial partner since 2010. Providing innovative banking solutions with security and reliability.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-heading">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="{% url 'home' %}">Home</a></li>
+                        <li class="mb-2"><a href="{% url 'services' %}">Services</a></li>
+                        <li class="mb-2"><a href="{% url 'about' %}">About Us</a></li>
+                        <li class="mb-2"><a href="{% url 'testimonials' %}">Testimonials</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-heading">Our Services</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">Personal Banking</a></li>
+                        <li class="mb-2"><a href="#">Business Banking</a></li>
+                        <li class="mb-2"><a href="#">Loans & Mortgages</a></li>
+                        <li class="mb-2"><a href="#">Investment Services</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="footer-heading">Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-3">
+                            <i class="fas fa-map-marker-alt me-2"></i>
+                            123 Finance Street, Banking District, 10001
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-phone me-2"></i>
+                            +1 (555) 123-4567
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-envelope me-2"></i>
+                            contact@securebank.com
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4" style="border-color: rgba(255, 255, 255, 0.1);">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2025 SecureBank. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="social-icons">
+                        <a href="#" class="me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize particles.js if container exists
+            const particlesContainer = document.getElementById('particles-js');
+            if (particlesContainer) {
+                particlesJS('particles-js', {
+                    particles: {
+                        number: {
+                            value: 80,
+                            density: {
+                                enable: true,
+                                value_area: 800
+                            }
+                        },
+                        color: {
+                            value: "#ffffff"
+                        },
+                        shape: {
+                            type: "circle",
+                            stroke: {
+                                width: 0,
+                                color: "#000000"
+                            },
+                        },
+                        opacity: {
+                            value: 0.3,
+                            random: false,
+                            anim: {
+                                enable: false
+                            }
+                        },
+                        size: {
+                            value: 3,
+                            random: true,
+                            anim: {
+                                enable: false
+                            }
+                        },
+                        line_linked: {
+                            enable: true,
+                            distance: 150,
+                            color: "#ffffff",
+                            opacity: 0.2,
+                            width: 1
+                        },
+                        move: {
+                            enable: true,
+                            speed: 2,
+                            direction: "none",
+                            random: false,
+                            straight: false,
+                            out_mode: "out",
+                            bounce: false,
+                            attract: {
+                                enable: false,
+                                rotateX: 600,
+                                rotateY: 1200
+                            }
+                        }
+                    },
+                    interactivity: {
+                        detect_on: "canvas",
+                        events: {
+                            onhover: {
+                                enable: true,
+                                mode: "grab"
+                            },
+                            onclick: {
+                                enable: true,
+                                mode: "push"
+                            },
+                            resize: true
+                        },
+                        modes: {
+                            grab: {
+                                distance: 140,
+                                line_linked: {
+                                    opacity: 1
+                                }
+                            },
+                            push: {
+                                particles_nb: 4
+                            }
+                        }
+                    },
+                    retina_detect: true
+                });
+            }
+            
+            // Initialize loan calculator if it exists
+            const loanCalculator = document.getElementById('loan-calculator');
+            if (loanCalculator) {
+                // Elements
+                const loanAmount = document.getElementById('loan-amount');
+                const loanTerm = document.getElementById('loan-term');
+                const interestRate = document.getElementById('interest-rate');
+                const monthlyPayment = document.getElementById('monthly-payment');
+                const totalInterest = document.getElementById('total-interest');
+                const termSlider = document.getElementById('term-slider');
+                
+                // Calculate loan
+                function calculateLoan() {
+                    const principal = parseFloat(loanAmount.value);
+                    const calculatedInterest = parseFloat(interestRate.value) / 100 / 12;
+                    const calculatedPayments = parseFloat(loanTerm.value) * 12;
+                    
+                    // Calculate monthly payment
+                    const x = Math.pow(1 + calculatedInterest, calculatedPayments);
+                    const monthly = (principal * x * calculatedInterest) / (x - 1);
+                    
+                    if (isFinite(monthly)) {
+                        // Update UI
+                        monthlyPayment.innerText = monthly.toFixed(2);
+                        totalInterest.innerText = ((monthly * calculatedPayments) - principal).toFixed(2);
+                    }
+                }
+                
+                // Event listeners
+                loanAmount.addEventListener('input', calculateLoan);
+                interestRate.addEventListener('input', calculateLoan);
+                
+                // If we have a term slider
+                if (termSlider) {
+                    termSlider.addEventListener('input', function() {
+                        loanTerm.value = this.value;
+                        calculateLoan();
+                    });
+                } else {
+                    loanTerm.addEventListener('input', calculateLoan);
+                }
+                
+                // Initial calculation
+                calculateLoan();
+            }
+            
+            // Testimonial carousel
+            const testimonialButtons = document.querySelectorAll('.testimonial-nav-button');
+            const testimonialIndicators = document.querySelectorAll('.testimonial-indicator');
+            
+            if (testimonialButtons.length > 0) {
+                testimonialButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const direction = this.dataset.direction;
+                        const currentActive = document.querySelector('.testimonial-indicator.active');
+                        let nextIndex;
+                        
+                        if (direction === 'next') {
+                            nextIndex = (parseInt(currentActive.dataset.index) + 1) % testimonialIndicators.length;
+                        } else {
+                            nextIndex = (parseInt(currentActive.dataset.index) - 1 + testimonialIndicators.length) % testimonialIndicators.length;
+                        }
+                        
+                        // Update indicators
+                        currentActive.classList.remove('active');
+                        testimonialIndicators[nextIndex].classList.add('active');
+                    });
+                });
+                
+                // Auto-advance testimonials
+                setInterval(() => {
+                    const nextButton = document.querySelector('.testimonial-nav-button[data-direction="next"]');
+                    if (nextButton) {
+                        nextButton.click();
+                    }
+                }, 5000);
+            }
+        });
+    </script>
+    
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

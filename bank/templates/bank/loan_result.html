@@ -1,0 +1,60 @@
+{% extends 'bank/base.html' %}
+
+{% block title %}Loan Application Result - SecureBank{% endblock %}
+
+{% block content %}
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h1 class="display-5 fw-bold mb-4">Loan Application Submitted</h1>
+                <div class="alert {% if loan.is_approved %}alert-success{% else %}alert-warning{% endif %} p-4">
+                    <h2 class="h4">Application ID: {{ loan.application_id }}</h2>
+                    <p class="mb-0">
+                        Your loan application has been {% if loan.is_approved %}approved{% else %}submitted for further review{% endif %}.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        {% if loan.is_approved %}
+        <div class="row justify-content-center mt-4">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="mb-0">Loan Summary</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <p class="text-muted mb-1">Loan Amount</p>
+                                <h4>${{ loan.loan_amount }}</h4>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <p class="text-muted mb-1">Loan Term</p>
+                                <h4>{{ loan.loan_term }} years</h4>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <p class="text-muted mb-1">Interest Rate</p>
+                                <h4>5.5%</h4>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <p class="text-muted mb-1">Monthly Payment</p>
+                                <h4>${{ monthly_payment|default:"477.53" }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        
+        <div class="row justify-content-center mt-4">
+            <div class="col-lg-8 text-center">
+                <p>We'll be in touch with you shortly if we need any additional information.</p>
+                <a href="{% url 'home' %}" class="btn btn-primary">Return to Home</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

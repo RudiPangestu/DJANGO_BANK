@@ -1,0 +1,14 @@
+{
+  "name": "securebank",
+  "version": "1.0.0",
+  "description": "SecureBank - Banking Website",
+  "scripts": {
+    "dev": "python manage.py runserver",
+    "build": "python manage.py collectstatic --noinput"
+  },
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "particles.js": "^2.0.0",
+    "@fortawesome/fontawesome-free": "^6.0.0"
+  }
+}

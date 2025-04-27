@@ -1,0 +1,105 @@
+{% extends 'bank/base.html' %}
+
+{% block title %}Loan Approved - SecureBank{% endblock %}
+
+{% block content %}
+<!-- Loan Application Result Section -->
+<section class="bg-bank py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="result-card text-center">
+                    <div class="result-icon success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h1 class="display-5 fw-bold mb-3 text-success">Congratulations!</h1>
+                    <p class="lead mb-5">Your loan application has been approved. One of our representatives will contact you shortly with the next steps.</p>
+                    
+                    <div class="result-details text-start mb-4">
+                        <h3 class="mb-3">Application Details</h3>
+                        <div class="detail-row">
+                            <span class="detail-label">Application ID:</span>
+                            <span class="detail-value">{{ application.application_id }}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Application Date:</span>
+                            <span class="detail-value">{{ application_date }}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Requested Amount:</span>
+                            <span class="detail-value">${{ application.loan_amount|floatformat:2 }}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Loan Term:</span>
+                            <span class="detail-value">{{ application.loan_term }} years</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Total Assets Value:</span>
+                            <span class="detail-value">${{ total_assets|floatformat:2 }}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="{% url 'home' %}" class="btn btn-primary btn-lg px-4">
+                            <i class="fas fa-home me-2"></i> Return to Home
+                        </a>
+                        <button class="btn btn-primary btn-lg px-4" onclick="window.print()">
+                            <i class="fas fa-print me-2"></i> Print Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Next Steps Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center">
+                <h2 class="section-title text-center">What Happens Next?</h2>
+                <p class="text-muted">Now that your loan has been approved, here are the next steps in the process:</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center mb-4" style="width: 70px; height: 70px;">
+                            <i class="fas fa-phone-alt fa-2x"></i>
+                        </div>
+                        <h4>1. Verification Call</h4>
+                        <p class="text-muted">One of our loan officers will call you within 24 hours to verify your details and explain the terms.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center mb-4" style="width: 70px; height: 70px;">
+                            <i class="fas fa-file-signature fa-2x"></i>
+                        </div>
+                        <h4>2. Documentation</h4>
+                        <p class="text-muted">Complete and sign the final loan agreement documents that will be sent to you.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center mb-4" style="width: 70px; height: 70px;">
+                            <i class="fas fa-money-bill-wave fa-2x"></i>
+                        </div>
+                        <h4>3. Fund Disbursement</h4>
+                        <p class="text-muted">Once documentation is complete, your loan funds will be disbursed to your account.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

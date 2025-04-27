@@ -1,0 +1,246 @@
+{% extends 'bank/base.html' %}
+
+{% block title %}Our Services - SecureBank{% endblock %}
+
+{% block content %}
+<!-- Services Hero Section -->
+<section class="hero bg-bank">
+    <div id="particles-js"></div>
+    <div class="container content-wrapper py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center text-white">
+                <h1 class="display-4 fw-bold mb-4">Our Financial Services</h1>
+                <p class="lead mb-0">Discover a comprehensive range of financial services designed to meet your personal and business needs.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Overview -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-3" style="width: 60px; height: 60px;">
+                                <i class="fas fa-user fa-2x"></i>
+                            </div>
+                            <h3 class="mb-0">Personal Banking</h3>
+                        </div>
+                        <p class="text-muted">Manage your day-to-day finances with our range of personal banking services designed to simplify your financial life.</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Checking & Savings Accounts</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Online & Mobile Banking</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Personal Credit Cards</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Retirement Planning</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary mt-3">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-3" style="width: 60px; height: 60px;">
+                                <i class="fas fa-briefcase fa-2x"></i>
+                            </div>
+                            <h3 class="mb-0">Business Banking</h3>
+                        </div>
+                        <p class="text-muted">From startups to established enterprises, our business banking solutions are designed to help your business thrive.</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Business Accounts</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Merchant Services</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Business Loans & Credit</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Cash Management</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary mt-3">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-3" style="width: 60px; height: 60px;">
+                                <i class="fas fa-chart-line fa-2x"></i>
+                            </div>
+                            <h3 class="mb-0">Investment Services</h3>
+                        </div>
+                        <p class="text-muted">Grow your wealth with our expert investment services designed to help you achieve your long-term financial goals.</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Investment Planning</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Retirement Accounts</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Wealth Management</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Estate Planning</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary mt-3">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Loan Services Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center">
+                <h2 class="section-title text-center">Loan Services</h2>
+                <p class="text-muted">We offer a variety of loan options to meet your financial needs, whether you're buying a home, expanding your business, or need personal financing.</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center mb-4" style="width: 70px; height: 70px;">
+                            <i class="fas fa-home fa-2x"></i>
+                        </div>
+                        <h4>Mortgage Loans</h4>
+                        <p class="text-muted">Find the right mortgage with competitive rates for your dream home.</p>
+                        <ul class="list-unstyled text-start">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Fixed & Adjustable Rates</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> First-Time Buyer Programs</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Refinancing Options</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer bg-white border-0 p-4">
+                        <a href="{% url 'apply_loan' %}" class="btn btn-primary w-100">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center mb-4" style="width: 70px; height: 70px;">
+                            <i class="fas fa-building fa-2x"></i>
+                        </div>
+                        <h4>Business Loans</h4>
+                        <p class="text-muted">Fuel your business growth with flexible financing options.</p>
+                        <ul class="list-unstyled text-start">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Small Business Loans</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Commercial Real Estate</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Equipment Financing</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer bg-white border-0 p-4">
+                        <a href="{% url 'apply_loan' %}" class="btn btn-primary w-100">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center mb-4" style="width: 70px; height: 70px;">
+                            <i class="fas fa-graduation-cap fa-2x"></i>
+                        </div>
+                        <h4>Education Loans</h4>
+                        <p class="text-muted">Invest in your future with affordable education financing.</p>
+                        <ul class="list-unstyled text-start">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Undergraduate & Graduate</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Flexible Repayment Plans</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Low Interest Rates</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer bg-white border-0 p-4">
+                        <a href="{% url 'apply_loan' %}" class="btn btn-primary w-100">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center mb-4" style="width: 70px; height: 70px;">
+                            <i class="fas fa-dollar-sign fa-2x"></i>
+                        </div>
+                        <h4>Personal Loans</h4>
+                        <p class="text-muted">Meet your personal financial needs with flexible loans.</p>
+                        <ul class="list-unstyled text-start">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Debt Consolidation</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Home Improvement</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Major Purchases</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer bg-white border-0 p-4">
+                        <a href="{% url 'apply_loan' %}" class="btn btn-primary w-100">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section class="py-5 bg-bank text-white">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center">
+                <h2 class="section-title text-center text-white">Why Choose SecureBank?</h2>
+                <p>We're committed to providing exceptional service and financial solutions that meet your needs.</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-white mb-3">Bank Securely</h3>
+                    <p class="text-white-50 mb-0">We employ state-of-the-art security measures to protect your financial information and transactions.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="text-white mb-3">Expert Support</h3>
+                    <p class="text-white-50 mb-0">Our team of financial experts is always ready to provide personalized assistance and advice.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="text-white mb-3">Digital Banking</h3>
+                    <p class="text-white-50 mb-0">Manage your finances anytime, anywhere with our user-friendly digital banking platform.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 bg-bank">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="display-5 text-white mb-4">Ready to Take the Next Step?</h2>
+                <p class="lead text-white mb-5">Apply for a loan today and let us help you achieve your financial goals with our competitive rates and personalized service.</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="{% url 'apply_loan' %}" class="btn btn-primary btn-lg px-5">
+                        Apply for Loan Now <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                    <a href="{% url 'about' %}" class="btn btn-outline-light btn-lg px-5">
+                        Learn More About Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

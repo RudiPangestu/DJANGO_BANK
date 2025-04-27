@@ -1,0 +1,208 @@
+{% extends 'bank/base.html' %}
+
+{% block title %}SecureBank - Your Trusted Financial Partner{% endblock %}
+
+{% block content %}
+<!-- Hero Section with Particles -->
+<section class="hero bg-bank">
+    <div id="particles-js"></div>
+    <div class="container content-wrapper">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <h1 class="display-4 fw-bold mb-4">Secure Your Financial <span style="color: var(--accent-color);">Future</span> With Us</h1>
+                <p class="lead mb-4">At SecureBank, we provide innovative banking solutions to help you achieve your financial goals with confidence and security.</p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="{% url 'apply_loan' %}" class="btn btn-primary btn-lg px-4 py-3">
+                        <i class="fas fa-dollar-sign me-2"></i> Apply for Loan
+                    </a>
+                    <a href="{% url 'services' %}" class="btn btn-secondary btn-lg px-4 py-3">
+                        Our Services
+                    </a>
+                </div>
+                
+                <div class="row mt-5">
+                    <div class="col-4">
+                        <div class="stat-item">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Years of Service</div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="stat-item">
+                            <div class="stat-number">100k+</div>
+                            <div class="stat-label">Happy Customers</div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="stat-item">
+                            <div class="stat-number">99%</div>
+                            <div class="stat-label">Satisfaction Rate</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="calculator-card">
+                    <h3 class="calculator-title">Quick Loan Calculator</h3>
+                    <div id="loan-calculator">
+                        <div class="mb-3">
+                            <label for="loan-amount" class="form-label text-white">Loan Amount</label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input type="number" class="form-control" id="loan-amount" value="25000" min="1000" max="1000000">
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="loan-term" class="form-label text-white">Loan Term (years)</label>
+                            <input type="number" class="form-control" id="loan-term" value="15" min="1" max="30">
+                            <input type="range" class="form-range mt-2" id="term-slider" min="1" max="30" value="15">
+                            <div class="d-flex justify-content-between">
+                                <small class="text-white">1 yr</small>
+                                <small class="text-white">15 yrs</small>
+                                <small class="text-white">30 yrs</small>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="interest-rate" class="form-label text-white">Interest Rate</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="interest-rate" value="3.25" step="0.01" min="1" max="20">
+                                <span class="input-group-text">%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="calculator-result">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="result-label">Monthly Payment</div>
+                                    <div class="result-value">$<span id="monthly-payment">175.25</span></div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="result-label">Total Interest</div>
+                                    <div class="result-value">$<span id="total-interest">6,545.00</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <a href="{% url 'apply_loan' %}" class="btn btn-primary w-100">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-5 bg-bank">
+    <div class="container py-5">
+        <div class="row mb-5">
+            <div class="col-lg-6 mx-auto text-center text-white">
+                <h2 class="section-title text-center text-white">Why Choose SecureBank?</h2>
+                <p>We offer competitive rates, personalized service, and innovative solutions to meet your financial needs.</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="text-white mb-3">Fast Approval</h3>
+                    <p class="text-white-50 mb-0">Get your loan approved within 24 hours of application</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <h3 class="text-white mb-3">Low Interest Rates</h3>
+                    <p class="text-white-50 mb-0">Enjoy competitive interest rates starting from 3.5%</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3 class="text-white mb-3">Flexible Terms</h3>
+                    <p class="text-white-50 mb-0">Choose from flexible repayment terms of 1-30 years</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="py-5 bg-bank">
+    <div class="container py-5">
+        <div class="row mb-5">
+            <div class="col-lg-6 mx-auto text-center text-white">
+                <h2 class="section-title text-center text-white">What Our Customers Say</h2>
+                <p>Don't just take our word for it. Here's what our valued customers have to say about their experience with SecureBank.</p>
+            </div>
+        </div>
+        
+        <div class="testimonial-carousel position-relative">
+            <div class="testimonial-card">
+                <div class="d-flex align-items-center">
+                    <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg" alt="Sarah Johnson" class="testimonial-avatar">
+                    <div class="ms-3">
+                        <h4 class="testimonial-name text-white">Sarah Johnson</h4>
+                        <p class="testimonial-position">Small Business Owner</p>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="testimonial-text text-white">"SecureBank's business loan helped me expand my boutique. Their personalized service and competitive rates made the whole process smooth and straightforward."</p>
+            </div>
+            
+            <div class="d-flex justify-content-center mt-4">
+                <button class="btn btn-sm rounded-circle bg-white text-primary me-2 testimonial-nav-button" data-direction="prev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="mx-2">
+                    <span class="testimonial-indicator active" data-index="0"></span>
+                    <span class="testimonial-indicator" data-index="1"></span>
+                    <span class="testimonial-indicator" data-index="2"></span>
+                    <span class="testimonial-indicator" data-index="3"></span>
+                </div>
+                <button class="btn btn-sm rounded-circle bg-white text-primary ms-2 testimonial-nav-button" data-direction="next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 bg-bank">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="display-5 text-white mb-4">Ready to Take the Next Step?</h2>
+                <p class="lead text-white mb-5">Apply for a loan today and let us help you achieve your financial goals with our competitive rates and personalized service.</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="{% url 'apply_loan' %}" class="btn btn-primary btn-lg px-5">
+                        Apply for Loan Now <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                    <a href="{% url 'services' %}" class="btn btn-outline-light btn-lg px-5">
+                        Learn More About Our Services
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

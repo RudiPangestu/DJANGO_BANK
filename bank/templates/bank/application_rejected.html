@@ -1,0 +1,116 @@
+{% extends 'bank/base.html' %}
+
+{% block title %}Loan Application Result - SecureBank{% endblock %}
+
+{% block content %}
+<!-- Loan Application Result Section -->
+<section class="bg-bank py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="result-card text-center">
+                    <div class="result-icon error-icon">
+                        <i class="fas fa-times-circle"></i>
+                    </div>
+                    <h1 class="display-5 fw-bold mb-3">We're Sorry</h1>
+                    <p class="lead mb-5">Your loan application could not be approved at this time.</p>
+                    
+                    <div class="result-details text-start mb-4">
+                        <h3 class="mb-3">Application Details</h3>
+                        <div class="detail-row">
+                            <span class="detail-label">Application ID:</span>
+                            <span class="detail-value">{{ application.application_id }}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Application Date:</span>
+                            <span class="detail-value">{{ application_date }}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Requested Amount:</span>
+                            <span class="detail-value">${{ application.loan_amount|floatformat:2 }}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Total Assets Value:</span>
+                            <span class="detail-value">${{ total_assets|floatformat:2 }}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-info" role="alert">
+                        <h4 class="alert-heading"><i class="fas fa-info-circle me-2"></i> What can you do next?</h4>
+                        <p>You can improve your chances of loan approval by:</p>
+                        <ul class="text-start">
+                            <li>Improving your credit score</li>
+                            <li>Reducing your existing debt</li>
+                            <li>Increasing your income or assets</li>
+                            <li>Applying for a smaller loan amount</li>
+                        </ul>
+                        <p class="mb-0">Our financial advisors are available to help you create a plan to improve your financial profile.</p>
+                    </div>
+                    
+                    <div class="d-flex justify-content-center gap-3 mt-4">
+                        <a href="{% url 'home' %}" class="btn btn-primary btn-lg px-4">
+                            <i class="fas fa-home me-2"></i> Return to Home
+                        </a>
+                        <a href="#" class="btn btn-primary btn-lg px-4">
+                            <i class="fas fa-calendar-alt me-2"></i> Schedule Financial Consultation
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Alternatives Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center">
+                <h2 class="section-title text-center">Alternative Options</h2>
+                <p class="text-muted">While this application wasn't approved, we have other financial solutions that might be a better fit for your current situation:</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center mb-4" style="width: 70px; height: 70px;">
+                            <i class="fas fa-credit-card fa-2x"></i>
+                        </div>
+                        <h4>Secured Credit Line</h4>
+                        <p class="text-muted">A credit line secured by your assets with more flexible approval criteria and competitive rates.</p>
+                        <a href="#" class="btn btn-outline-primary mt-3">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center mb-4" style="width: 70px; height: 70px;">
+                            <i class="fas fa-piggy-bank fa-2x"></i>
+                        </div>
+                        <h4>Financial Planning</h4>
+                        <p class="text-muted">Work with a financial advisor to improve your financial profile and increase future approval chances.</p>
+                        <a href="#" class="btn btn-outline-primary mt-3">Book Consultation</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center mb-4" style="width: 70px; height: 70px;">
+                            <i class="fas fa-hand-holding-usd fa-2x"></i>
+                        </div>
+                        <h4>Smaller Loan Amount</h4>
+                        <p class="text-muted">Consider applying for a smaller loan amount which may have higher approval chances.</p>
+                        <a href="{% url 'apply_loan' %}" class="btn btn-outline-primary mt-3">Apply Again</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
